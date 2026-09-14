@@ -1,0 +1,13 @@
+name = "pregnancy-olfaction-api"
+main = "src/index.ts"
+compatibility_date = "2026-09-01"
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "pregnancy-olfaction-db"
+database_id = "ecd60c12-4002-47a1-8366-4291f6156d64"
+
+[[r2_buckets]]
+binding = "PDFS"
+bucket_name = "pregnancy-olfaction-pdfs"

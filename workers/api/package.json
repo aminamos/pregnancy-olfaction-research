@@ -1,0 +1,1 @@
+{"name": "pregnancy-olfaction-api", "version": "0.1.0", "private": true, "type": "module", "scripts": {"dev": "wrangler dev", "deploy": "wrangler deploy", "db:apply": "wrangler d1 execute pregnancy-olfaction-db --file=schema.sql", "db:seed": "wrangler d1 execute pregnancy-olfaction-db --file=seed.sql"}, "dependencies": {"hono": "^4.7.0"}}
