@@ -28,13 +28,32 @@ Additional key reference for follow-up (not yet in `pdfs/` due to access):
 - Cameron, E. L. (2014). Pregnancy and olfaction: a review. *Frontiers in Psychology*, 5. https://doi.org/10.3389/fpsyg.2014.00067 – Cited by: 144
 - Dikici, O., Bayar Muluk, N., Şahin, E., & Altıntoprak, N. (2017). Effects of pregnancy on olfaction. *ENT Updates*, 7, 104–107. https://doi.org/10.2399/jmu.2017002009 – Cited by: 12
 
-## Research directions (LM-brute-forceable)
+## What can be brute-forced now, no lab needed
 
-1. Updated systematic review 2014–2026 from Cameron forward citations.
-2. Odor-specific aversion frequency (meat / coffee / perfume / smoke / spoiled food).
-3. Trimester curve reconstruction: T1 / T2 / T3 / postpartum for threshold vs ID vs hedonics.
-4. Methods audit: Sniffin' Sticks / UPSIT / PEA, n, controls, longitudinal vs cross-sectional.
-5. Citation distortion check: hyperosmia claim vs actual null threshold findings.
+1. Updated systematic review 2014-2026. Cameron stops at 2014. Albaugh et al. 2022 meta-analysis (506 cases / 333 controls, worse identification, no detection difference) needs update. Brute force: PubMed / PMC / Ovid forward search, screen all, re-extract.
+2. Odor-specific frequency count. Brute force text-mine all papers + abstracts for trigger odors. Test if aversion is odor-specific (unpleasant / potentially teratogenic) vs general hedonic shift.
+3. Trimester curve reconstruction. Brute force extract every trimester-specific datapoint (T1 vs T2 vs T3 vs postpartum week 7-12) and plot threshold / ID / hedonics separately. Dikici, Ochsenbein-Kölble 2007, Savovic 2002, Nordin 2004 all have fragments.
+4. Citation distortion check. Track how "hyperosmia" is cited vs what Cameron actually concluded (no evidence for general hyperosmia). Common failure mode.
+5. Preregistered replication protocol. LM can draft Sniffin' Sticks + hedonic ratings + rhinitis score + hormone panel protocol ready to run.
+
+LM limit: cannot resolve estrogen -> aversion mechanism causally. Can list proposed paths (olfactory mucosa ER expression, limbic amplification, trigeminal decrease, nausea conditioning) and mark each as correlational in humans. Requires paired assay + psychophysics to move further.
+
+## Literature synthesis from those 2 seeds + their citation graphs
+
+- Cameron 2014 cited by 144. Dikici 2017 cited by 12. Extract: N, trimester, test (threshold / discrimination / identification / hedonics), result direction, effect size.
+- Output: claim-evidence matrix separating subjective hyperosmia vs objective threshold vs hedonics vs disgust.
+
+2. Contradiction mapping.
+
+- Example already in your notes: 67% report hyperosmia early, no threshold decrease on PEA / Sniffin' Sticks. LM can tag every paper as supports / null / opposite for that specific claim.
+
+3. Hypothesis audit.
+
+- Embryo-protection, hormonal (estrogen/progesterone/hCG), pregnancy rhinitis/congestion, cognitive/high-level processing, Garcia-effect conditioning. LM can score each for evidence strength and falsifiability.
+
+4. Methods audit / power check.
+
+- Extract sample sizes, controls, validated vs ad-hoc tests, longitudinal vs cross-sectional. Most pregnancy olfaction studies are n<100, trimester-collapsed. LM can flag underpowered designs.
 
 ## License
 
