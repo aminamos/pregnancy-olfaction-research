@@ -19,6 +19,7 @@ Live API: https://pregnancy-olfaction-api.a-8c6.workers.dev
 - `GET /api/findings?domain=&trimester=&direction=`
 - `GET /api/odor-mentions`
 - `GET /api/odor-relevance` — food-salient vs test-odor split + threshold outcomes
+- `GET /api/claims` — claim-evidence matrix (C1 self-report / C2 threshold / C3 ID / C4 hedonics per paper), 15 rows
 - `GET /api/mechanisms`
 - `GET /api/gaps`
 - `GET /api/pdfs` / `GET /api/pdfs/:key` (R2, open-access PDFs only)

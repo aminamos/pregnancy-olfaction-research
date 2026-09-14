@@ -7,6 +7,35 @@ type Env = {
 
 const app = new Hono<{ Bindings: Env }>();
 
+const ENDPOINTS = [
+  "/health",
+  "/api/papers",
+  "/api/papers/:citeKey",
+  "/api/findings?domain=&trimester=&direction=",
+  "/api/odor-mentions",
+  "/api/odor-relevance",
+  "/api/mechanisms",
+  "/api/gaps",
+  "/api/pdfs",
+  "/api/pdfs/:key",
+];
+
+// Root index (fixes 404 on bare worker URL in browsers)
+app.get("/", (c) => {
+  const url = new URL(c.req.url);
+  const links = ENDPOINTS.map((e) => {
+    const href = e.replace(/:[a-zA-Z]+/g, "").replace(/[?].*$/, "");
+    return `<li><a href="${href}">${e}</a></li>`;
+  }).join("");
+  return c.html(
+    `<!doctype html><html><head><meta charset="utf-8"><title>pregnancy-olfaction-api</title></head>` +
+      `<body><h1>pregnancy-olfaction-api</h1>` +
+      `<p>Base: ${url.origin}</p><ul>${links}</ul>` +
+      `<p>Docs: <a href="https://github.com/aminamos/pregnancy-olfaction-research/blob/main/workers/api/CLOUDFLARE.md">CLOUDFLARE.md</a></p>` +
+      `</body></html>`
+  );
+});
+
 app.get("/health", (c) => c.json({ ok: true, service: "pregnancy-olfaction-api" }));
 
 // Papers
@@ -65,9 +94,14 @@ app.get("/api/odor-relevance", async (c) => {
   });
 });
 
+// Claim-evidence matrix (tasks 1/2): stance per paper per claim
+app.get("/api/claims", async (c) => {
+  const rs = await c.env.DB.prepare("SELECT * FROM claim_evidence ORDER BY cite_key ASC").all();
+  return c.json(rs.results);
+});
+
 // Mechanisms, gaps
-app.get("/api/mechanisms", async (c) => {
-  const rs = await c.env.DB.prepare("SELECT * FROM mechanisms ORDER BY name ASC").all();
+app.get("/api/mechanisms", async (c) => {  const rs = await c.env.DB.prepare("SELECT * FROM mechanisms ORDER BY name ASC").all();
   return c.json(rs.results);
 });
 
